@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+nav {
+    display: flex;
+    background-color: #677289;
+    color: #F8F7F6;
+    justify-content: space-around;
+    box-sizing: border-box;
+    height: 50px;
+    align-items: center;
+}
+
+nav div h4 {
+    font-family: 'Peddana', serif;
+    font-size: 2.27em;
+    letter-spacing: 3px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+
+}
+
+nav ul li a {
+    color: #F8F7F6;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 20px;
+    font-size: .9em;
+    transition: .4s;
+}
+
+nav ul li a:hover {
+    color: #e6e2df;
+    border-bottom: 1px solid #e6e2df;
+}
+
+/* humberger menu */
+
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 42px;
+    height: 28px;
+    opacity: 0;
+    left: -7px;
+    top: -1px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: whitesmoke;
+    transition: .5s;
+}
+
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+    transform: rotate(45deg) translate(-1px, -1px);
+    background-color: #e9e6e3;
+}
+.menu-toggle input:checked ~ span:nth-child(3) {
+    transform: scale(0);
+}
+.menu-toggle input:checked ~ span:nth-child(4) {
+    transform: rotate(-45deg) translate(-1px, 0);
+    background-color: #e9e6e3;
+}
+/* responsive nav */
+
+/* ukuran tablet */
+@media screen and (max-width: 810px) {
+    nav ul {
+        width: 40%;    
+    }
+    nav div h4 {
+        font-size: 1.8em;
+    }
+    nav ul li a {
+        font-size: .8em;
+    }
+}
+
+/* ukuran smartphone */
+@media screen and (max-width: 576px) {
+    nav ul { 
+        position: absolute;
+        flex-direction: column;
+        width: 80%;
+        height: 100%;
+        background-color: #677289;
+        right: 0;
+        top: 0;
+        align-items: center;
+        justify-content: space-evenly;
+        z-index: -1;
+        transform: translateX(100%);
+        transition: all .7s;
+        opacity: 0;
+    }
+
+    /* slide nav */
+    nav ul.slide {
+        transform: translateX(0);
+        opacity: .98;
+    }
+
+    nav ul li a {
+        font-size: 1.1em;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+}
